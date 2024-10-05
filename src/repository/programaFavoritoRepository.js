@@ -49,7 +49,9 @@ export async function programaFavoritoD(id) {
     const comando = `
         DELETE FROM tb_programa_favorito WHERE id_programa_favorito = ?
     `;
-    const [resultado] = await con.query(comando, [id]);
+    const [resultado] = await connection.query(comando, [id]);
 
     const dados = resultado[0];
-    ret
+    return dados.affectedRows;
+
+}
